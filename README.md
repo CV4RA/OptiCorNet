@@ -1,6 +1,14 @@
-# OptiCorNet: Optimizing Sequence-Based Context Correlation for Visual Place Recognition
+<p align="center">
+<h1 align="center">OptiCorNet: Optimizing Sequence-Based Context Correlation for Visual Place Recognition</h1>
+ <p align="center">
 
+###  Introduction
 
+This paper presents OptiCorNet, a novel sequence modeling framework that unifies spatial feature extraction and temporal differencing into a differentiable, end-to-end trainable module. Central to our approach is a lightweight 1D convolutional encoder combined with a learnable differential temporal operator, termed Differentiable Sequence Delta (DSD), which jointly captures short-term spatial context and long-range temporal transitions. The DSD module models directional differences across sequences via a fixed-weight differencing kernel, followed by an LSTM-based refinement and optional residual projection, yielding compact, discriminative descriptors robust to viewpoint and appearance shifts. To further enhance inter-class separability, we incorporate a quadruplet loss that optimizes both positive alignment and multi-negative divergence within each batch. Unlike prior VPR methods that treat temporal aggregation as post-processing, OptiCorNet learns sequence-level embeddings directly, enabling more effective end-to-end place recognition.
+
+###  Structure overview
+
+![alt text](image.png)
 
 ## Setup
 ### Conda
