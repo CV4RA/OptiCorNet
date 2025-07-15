@@ -10,6 +10,12 @@ This paper presents OptiCorNet, a novel sequence modeling framework that unifies
 
 ![alt text](image.png)
 
+
+### Experimental results
+
+![alt text](image-1.png)
+
+
 ## Setup
 ### Conda
 ```bash
