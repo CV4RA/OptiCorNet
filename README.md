@@ -19,11 +19,11 @@ conda create -n seqnet numpy pytorch=1.8.0 torchvision tqdm scikit-learn faiss t
 ## Run
 
 ### Train
-To train sequential descriptors through SeqNet on the Nordland dataset:
+To train sequential descriptors through dsdnet on the Nordland dataset:
 ```python
 python main.py --mode train --pooling dsdnet --dataset nordland-sw --seqL 10 --w 5 --outDims 4096 --expName "w5"
 ```
-or the Oxford dataset (set `--dataset oxford-pnv` for pointnetvlad-like data split as described in the [CVPR 2021 Workshop paper](https://arxiv.org/abs/2106.11481)):
+or the Oxford dataset (set `--dataset oxford-pnv` for pointnetvlad-like data split:
 ```python
 python main.py --mode train --pooling dsdnet --dataset oxford-v1.0 --seqL 5 --w 3 --outDims 4096 --expName "w3"
 ```
