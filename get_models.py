@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 from os.path import join, isfile
-import dsdnet
+import seqNet
 
 class Flatten(nn.Module):
     def forward(self, input):
@@ -20,7 +20,7 @@ class L2Norm(nn.Module):
 def get_model(opt,encoder_dim,device):
     model = nn.Module()
 
-    if opt.seqL == 1 and opt.pooling.lower() not in ['single', 'dsdnet']:
+    if opt.seqL == 1 and opt.pooling.lower() not in ['single', 'seqnet']:
         raise Exception("For sequential matching/pooling, set seqL > 1")
     elif opt.seqL != 1 and opt.pooling.lower() in ['single']:
         raise Exception("For single frame based evaluation, set seqL = 1")
@@ -28,7 +28,7 @@ def get_model(opt,encoder_dim,device):
     if opt.pooling.lower() == 'smooth':
         global_pool = nn.AdaptiveAvgPool2d((1,None))
         model.add_module('pool', nn.Sequential(*[global_pool, Flatten(), L2Norm()]))
-    elif opt.pooling.lower() == 'dsdnet':
+    elif opt.pooling.lower() == 'seqnet':
         seqFt = seqNet.seqNet(encoder_dim, opt.outDims, opt.seqL, opt.w)
         model.add_module('pool', nn.Sequential(*[seqFt, Flatten(), L2Norm()]))
     elif opt.pooling.lower() == 's1+seqmatch':

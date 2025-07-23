@@ -72,7 +72,7 @@ def train(opt, model, encoder_dim, device, dataset, criterion, optimizer,
 
             optimizer.zero_grad()
 
-            # computing each query 
+            # computing each query
             for i, (negCount1, negCount2) in enumerate(zip(negCounts1, negCounts2)):
                 for n in range(negCount1):
                     negIx = (torch.sum(negCounts1[:i]) + n).item()

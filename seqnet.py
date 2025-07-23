@@ -2,9 +2,9 @@ import torch
 import torch.nn as nn
 import numpy as np
 
-class dsdnet(nn.Module):
+class seqNet(nn.Module):
     def __init__(self, inDims, outDims, seqL, w=5):
-        super(dsdnet, self).__init__()
+        super(seqNet, self).__init__()
         self.inDims = inDims
         self.outDims = outDims
         self.w = w
